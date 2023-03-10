@@ -1,0 +1,103 @@
+.header {
+    box-shadow: 0px 5px 5px -5px rgba(34, 60, 80, 0.6);
+    background: rgb(109, 134, 113);
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 65px;
+    align-content: center;
+    justify-content: center;
+    justify-items: center;
+    align-items: center;
+    &__logo {
+        cursor: pointer;
+        img {
+            height: 40px;
+            width: 160px;
+            object-fit: contain;
+        }
+    }
+    &__date {
+        color: #fff;
+        background: rgb(109, 134, 113);
+        padding: 2px;
+        width: 170px;
+        border-radius: 5px;
+        text-align: center;
+        box-shadow: 0px -1px 11px 1px rgba(34, 60, 80, 0.2) inset;
+        opacity: 1;
+    }
+    &__search {
+        position: relative;
+        &::before {
+            content: "";
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background: url('../../../public/img/lupa.png') center/contain no-repeat;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        &_active {
+            &::after {
+                content: "";
+                position: absolute;
+                top: 0;
+                display: block;
+                width: 100%;
+                height: 100%;
+                background: rgba(0, 0, 0, 0.2);
+                border-radius: 5px;
+            }
+        }
+        input {
+            width: 300px;
+            height: 35px;
+            outline: none;
+            border: none;
+            padding-left: 35px;
+            border-radius: 5px;
+            transition: .2s all;
+            background: #fff;
+            box-shadow: 0px -1px 11px 1px rgba(34, 60, 80, 0.2) inset;
+            &:focus {
+                border: 1px solid black;
+            }
+            
+        }
+    }
+}
+
+@media (max-width: 682px) {
+    .header {
+        grid-template-columns: 1fr 1fr;
+        &__search {
+            grid-row: 2/3;
+            grid-column: 1/3;
+            margin-bottom: 15px;
+            input {
+                width: 100%;
+            }
+        }
+    }
+}
+
+@media (max-width: 362px) {
+    .header {
+        &__logo{
+            img{
+                width: 100px;
+            }
+        }
+        &__search {
+            input {
+                width: 100%;
+            }
+        }
+        &__date {
+            width: auto;
+            font-size: 12px;
+            padding: 4px;
+        }
+    }
+}

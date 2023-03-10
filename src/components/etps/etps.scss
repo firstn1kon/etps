@@ -1,0 +1,155 @@
+.etps {
+    margin: 40px 0;
+    padding: 0 10px;
+    list-style-type: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, 250px);
+    gap: 25px 30px;
+    justify-content: center;
+    animation: 1s alternate fadeIn;
+    &__etp {
+        padding: 5px;
+        // box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+        box-shadow: 0px 0px 8px 2px rgba(34, 60, 80, 0.2);
+        border-top-left-radius: 5px;
+        border-top-right-radius: 5px;
+        overflow: hidden;
+        position: relative;
+        h4 {
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 20px;
+            font-weight: normal;
+            position: relative;
+            &::before {
+                content: "\21E7";
+                position: absolute;
+                top: 1px;
+                right: 70px;
+                transform: rotate(180deg);
+            }
+            &::after {
+                content: "\21E7";
+                position: absolute;
+                top: 1px;
+                left: 70px;
+                transform: rotate(180deg);
+            }
+        }
+        &-wrapper {
+            display: flex;
+            width: 200%;
+            transform: translateX(-1%);
+            transition: .3s transform;
+            margin-bottom: 40px;
+        }
+        &-sections {
+            width: 50%;
+            display: flex;
+            flex-direction: column;
+        }
+        &-passwords {
+            padding: 5px;
+            width: 50%;
+            text-align: center;
+        }
+        &-img {
+            img {
+                width: 100px;
+                height: 30px;
+                object-fit: contain;
+            }
+        }
+        &-name {
+            width: 100px;
+            text-align: center;
+        }
+        &-title {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+        }
+        &-section {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 5px;
+            text-align: center;
+            &-item {
+                padding: 5px;
+                width: 100px;
+                background: rgb(240, 240, 240);
+                height: 33px;
+
+            }
+            &-login {
+                width: 100px;
+                height: 33px;
+                background: rgb(240, 240, 240);
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+                transition: .2s all;
+                &:hover {
+                    background: rgb(225, 225, 225);
+                }
+            }
+        }
+        &-button {       
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: none;
+            width: 140px;
+            padding: 3px;
+            background: rgb(50, 131, 114);
+            color: #fff;
+            margin: 0 auto;
+            margin-top: 30px;
+            border-radius: 5px;
+            &_absolute {
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 100px;
+                border-radius: 0px;
+                border-top-left-radius: 5px;
+                border-top-right-radius: 5px;
+            }
+        }
+        &-enter {
+            font-size: 14px;
+            font-weight: bold;
+        }
+    }
+}
+
+
+.active {
+    transform: translateX(-51%);
+}
+
+@media (max-width: 549px) {
+    .etps {
+        grid-template-columns: repeat(auto-fill, 320px);
+    }
+    
+}
+
+@media (max-width: 340px) {
+    .etps {
+        grid-template-columns: 1fr;
+        &__etp {
+            &-passwords {
+                padding: 5px 5px 5px 10px;
+            }
+            
+        }
+
+
+    }
+    
+}
