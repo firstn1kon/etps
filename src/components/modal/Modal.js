@@ -7,9 +7,9 @@ import "./passwords.scss"
 const ModalWind = ({close, children}) => {
 
     useEffect(()=> {
-        document.querySelector('body').style.cssText="overflow: hidden"
+        document.body.style.cssText="overflow: hidden"
         return ()=> {
-            document.querySelector('body').style.cssText="overflow: auto"
+            document.body.removeAttribute('style');
         }
     })
 
