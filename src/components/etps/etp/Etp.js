@@ -5,7 +5,7 @@ import EtpModal from "./EtpModal";
 const Etp = ({data}) => {
     const {name, logo, sections, passwords} = data;
     const [isClick, setClick] = useState(false);
-    const {renderModal, setModal} = useModal(<EtpModal passwords={passwords}/>);
+    const {renderModal, openModal} = useModal(<EtpModal passwords={passwords}/>);
 
     const toggleScreenByClass = isClick ? "active" : "";
 
@@ -18,10 +18,9 @@ const Etp = ({data}) => {
         )
     });
 
-    const showButtonPasswords = passwords? 
-        <button className="etps__etp-button" onClick={()=> setModal(modal => !modal)}>
-        Показать пароли
-        </button> : null;
+    const showButtonPasswords = passwords
+        ? <button className="etps__etp-button" onClick={openModal}>Показать пароли</button> 
+        : null;
 
     const toggleScreen = () => {
         setClick(click => !click)
@@ -47,7 +46,7 @@ const Etp = ({data}) => {
                     {renderModal}
                 </div>
             </div>
-            <button className="etps__etp-button etps__etp-button_absolute" onClick={() => toggleScreen()}>
+            <button className="etps__etp-button etps__etp-button_absolute" onClick={toggleScreen}>
                 {isClick ? "НАЗАД" : "ПАРОЛИ"}
             </button>
         </li>

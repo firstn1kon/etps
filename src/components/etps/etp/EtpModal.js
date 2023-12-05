@@ -1,6 +1,5 @@
 import { Fragment } from "react";
 
-
 const EtpModal = ({passwords}) => {
 
     const renderEtps = passwords.map(passwordCurrentUser => <View key={passwordCurrentUser.name} data={passwordCurrentUser}/>);

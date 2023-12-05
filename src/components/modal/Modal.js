@@ -51,7 +51,7 @@ const ModalWind = ({close, children}) => {
 
 
 
-
+const outter = document.createElement('div');
 const Portal = (props) => {
     useEffect(()=> {
         document.body.appendChild(outter);
@@ -59,7 +59,7 @@ const Portal = (props) => {
             outter.remove()
         }
     })
-    const outter = document.createElement('div');
+
     
     return (
         ReactDOM.createPortal(props.children, outter)

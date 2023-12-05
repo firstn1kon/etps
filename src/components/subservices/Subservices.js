@@ -1,6 +1,16 @@
 import dataGis from "./dataGis"
 import "./subservices.scss"
+import { useEffect } from "react"
+
+const title = document.title
+
 const Subservices = () => {
+    useEffect(()=> {
+        document.title = 'ГИС'
+        return () => {
+            document.title = title
+        }
+    })
 
     const renderGis = (data) => 
         data.map(({name, logo, description, lk, lkUrl, notice}) => {
