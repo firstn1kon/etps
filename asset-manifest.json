@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/etps/static/css/main.718565a1.css",
+    "main.js": "/etps/static/js/main.2c88b144.js",
+    "static/media/lupa.png": "/etps/static/media/lupa.1849afbd756fd80f2979.png",
+    "index.html": "/etps/index.html",
+    "main.718565a1.css.map": "/etps/static/css/main.718565a1.css.map",
+    "main.2c88b144.js.map": "/etps/static/js/main.2c88b144.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.718565a1.css",
+    "static/js/main.2c88b144.js"
+  ]
+}
