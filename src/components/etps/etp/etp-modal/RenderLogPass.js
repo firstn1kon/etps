@@ -1,30 +1,19 @@
 import { Fragment } from "react";
+import useCopyBuffer from "../../../hooks/useCopyBuffer";
 
-const EtpModal = ({passwords}) => {
-
-    const renderEtps = passwords.map(passwordCurrentUser => <View key={passwordCurrentUser.name} data={passwordCurrentUser}/>);
-
-    return (
-        <>
-        {renderEtps}
-        </>
-    )
-}
-
-export const View = ({data}) => {
+const RenderLogPass = ({data}) => {
 
     const {name, section} = data;
 
-    const copyBuffer = (e) => {
-        if (!e.target.classList.contains("copyimg")) return
-        const setBuffer = navigator.clipboard.writeText(e.target.closest("div").previousSibling.textContent);
-        setBuffer.then(() => navigator.clipboard.readText().then(text => e.target.nextSibling.textContent = `скопировано: ${text}`))
-    }
+    const {
+        copyBuffer: copyLogin, 
+        setDefaultCopyMessage: setDefaultLoginMessage, 
+        copyRef: copyLoginRef, 
+        copyResultRef: copyResultLoginRef
+    } = useCopyBuffer()
 
-    const setDefaultCopyMessage = (e) => {
-        if (!e.target.classList.contains("copyimg")) return
-        e.target.nextSibling.textContent= 'скопировать'
-    }
+    const {copyBuffer, setDefaultCopyMessage, copyRef, copyResultRef} = useCopyBuffer()
+
     return (
         <div className="password">
             <h3>{name}</h3>
@@ -36,10 +25,10 @@ export const View = ({data}) => {
                             <div className="password__type">Логин</div>
                             <div className="password__pass">
                                 <div className="password__pass-wrapper">
-                                    <div>{login}</div>
-                                    <div className="password__copy" onClick={(e) => copyBuffer(e)} onMouseLeave={(e)=> setDefaultCopyMessage(e)}>
+                                    <div ref={ref => copyLoginRef.current[i] = ref}>{login}</div>
+                                    <div className="password__copy" onClick={() => copyLogin(i)} onMouseLeave={() => setDefaultLoginMessage(i)}>
                                         <img className="copyimg" width="20px" src="./img/copyicon.png" alt="скопировать"/>
-                                        <div className="password__result">скопировать</div>
+                                        <div ref={ref => copyResultLoginRef.current[i] = ref} className="password__result">скопировать</div>
                                     </div>
                                 </div>
                             </div>
@@ -48,13 +37,13 @@ export const View = ({data}) => {
                                 <div className="password__info">i</div>
                             </div>
                             <div className="password__pass">
-                                {passwords.map(password => {
+                                {passwords.map((password, i)=> {
                                     return (
                                         <div key={password} className="password__pass-wrapper">
-                                            <div>{password}</div>
-                                            <div className="password__copy" onClick={(e) => copyBuffer(e)} onMouseLeave={(e)=> setDefaultCopyMessage(e)}>
+                                            <div ref={ref => copyRef.current[i] = ref}>{password}</div>
+                                            <div className="password__copy" onClick={() => copyBuffer(i)} onMouseLeave={()=>setDefaultCopyMessage(i)}>
                                                 <img className="copyimg" width="20px" src="./img/copyicon.png" alt="скопировать"/>
-                                                <div className="password__result">скопировать</div>
+                                                <div ref={ref => copyResultRef.current[i]= ref} className="password__result">скопировать</div>
                                             </div>
                                         </div>
                                     )
@@ -68,4 +57,4 @@ export const View = ({data}) => {
     )
 }
 
-export default EtpModal
+export default RenderLogPass

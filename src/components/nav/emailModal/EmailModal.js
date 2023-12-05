@@ -1,5 +1,7 @@
 import emailPass from './data';
-import {View} from "../../etps/etp/EtpModal";
+// import View from '../../etps/etp/etp-modal/RenderLogPass';
+
+import RenderLogPass from '../../etps/etp/etp-modal/RenderLogPass';
 
 import './emailmodal.scss'
 
@@ -12,7 +14,7 @@ const EmailModal = () => {
                         <div className='email__type'><span>Я</span>ндекс почта</div>
                     </div>  
                 </a>
-                <View data={emailPass}/>
+                <RenderLogPass data={emailPass}/>
                 <div className="email__notice">
                     На электронную почту приходят сообщения от ЭТП о подачи заявки, 
                     рассмотрение заявки, протоколы, подписание контрактов и другие важные уведомления. <br/>

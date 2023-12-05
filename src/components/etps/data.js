@@ -97,7 +97,7 @@ const etps = [
             name: 'Petrov Д.В.',
             section: [{
                 section: '223 ФЗ',
-                login: 'login',
+                login: 'login2',
                 passwords: ['pass', 'pass2']
                 },
             ]

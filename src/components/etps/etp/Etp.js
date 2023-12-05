@@ -1,7 +1,7 @@
 import { useState} from "react";
 import useModal from "../../hooks/useModal";
 
-import EtpModal from "./EtpModal";
+import EtpModal from "./etp-modal/EtpModal";
 const Etp = ({data}) => {
     const {name, logo, sections, passwords} = data;
     const [isClick, setClick] = useState(false);
